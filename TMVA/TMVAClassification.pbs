@@ -1,0 +1,42 @@
+##### READ ME ######
+#very simple batch submission script to run a root macro
+#(From T.O'Donnell's example)
+
+#To submit the job do: qsub example1.pbs
+#in the shell
+##### END OF README #####
+
+#!/bin/bash
+### ashtagPBS is a command
+
+### Email option - receive an email when the job is finished or crashes
+#PBS -m abe
+#PBS -M guido.fantini@gssi.it
+
+### Set what queue the job will go to
+#PBS -q cuore
+
+### Where the error logs and outputs of the job will be stored
+#(localhost:: is important to put when you runa a job into a batch session)
+#PBS -e localhost:/nfs/cuore1/scratch/gfantini/jobs/log/example0_PBS.e
+#PBS -o localhost:/nfs/cuore1/scratch/gfantini/jobs/log/example0_PBS.o
+
+
+#Source the environment file
+source /cuore/soft/bin/diana_env.sh
+#define what is needed to use TMVA
+source /cuore/soft/root/tmva/test/setup.sh /cuore/soft/root/
+
+#print some environment variables just to check later how they were set
+echo "HOST IS " $HOSTNAME
+printenv
+
+
+
+#Actually run the root macro
+# define which program you want to run: root
+# -b is for running in batch interactive session
+# -q is to quit the session after it is finished
+# give the input macro path
+# >> path to the output txt file (what is printed onto root terminal)
+root -b -q /nfs/cuore1/scratch/gfantini/neuralnet/TMVA/src/TMVAClassification.C >> /nfs/cuore1/scratch/gfantini/neuralnet/TMVA/log/TMVAClassification_20180606_1435.log

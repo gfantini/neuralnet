@@ -32,14 +32,14 @@
 ///
 /// If no method given, a default set is of classifiers is used
 ///
-/// - Project   : TMVA - a ROOT-integrated toolkit for multivariate data analysis
+//// - Project   : TMVA - a ROOT-integrated toolkit for multivariate data analysis
 /// - Package   : TMVA
 /// - Root Macro: TMVAClassification
 ///
 /// \macro_output
 /// \macro_code
 /// \author Andreas Hoecker
-
+//gSystem->SetIncludePath("-I/cuore/soft/root/include/");
 
 #include <cstdlib>
 #include <iostream>
@@ -55,9 +55,9 @@
 #include "TROOT.h"
 
 #include "TMVA/Factory.h"
-#include "TMVA/DataLoader.h"
+#include "TMVA/DataLoader.h" // needs root_v6.06.08
 #include "TMVA/Tools.h"
-#include "TMVA/TMVAGui.h"
+#include "TMVA/TMVAGui.h" // needs root_v6.06.08 
 
 int TMVAClassification( TString myMethodList = "" )
 {
@@ -70,6 +70,7 @@ int TMVAClassification( TString myMethodList = "" )
    //     mylinux~> root -l TMVAClassification.C\(\"myMethod1,myMethod2,myMethod3\"\)
 
    //---------------------------------------------------------------
+
    // This loads the library
    TMVA::Tools::Instance();
 
