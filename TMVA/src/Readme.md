@@ -7,3 +7,4 @@ for signal and background pulses. Each tree needs to have a V[1000*10]/F leaf wi
 ## CuoreToMLP
 This reads .list from the CUORE data and produces a .root file with the TreeS and TreeB required by TMVA_MLP
 A set of cuts is implemented inside to select signal / background events.
+It takes some time to run -> there is a .pbs script in the pbs folder to run it batch
