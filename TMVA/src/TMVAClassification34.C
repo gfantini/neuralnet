@@ -26,6 +26,7 @@
  *    root -l ./TMVAGui.C                                                         *
  *                                                                                *
  * qrpp TMVAClassification34.C -o ../bin/TMVA34 -I/cuore/soft/root_v5.34.34/include/ -L/cuore/soft/root_v5.34.34/lib/  -lTMVA
+ * Hello.. this was written by xCode on my mac..
  **********************************************************************************/
 
 #include <cstdlib>
@@ -208,7 +209,7 @@ void TMVAClassification( TString myMethodList = "" )
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
    TString fname = "/nfs/cuore1/scratch/gfantini/neuralnet/TMVA/input/myTMVA.root";
-   
+	
    if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
      exit(0);
      //      gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
